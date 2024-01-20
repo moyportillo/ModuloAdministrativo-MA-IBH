@@ -1,0 +1,8 @@
+MONGODB
+IP:181.115.59.193
+USER:mabustillop
+PASS:RmqfnXRgGdm25RbT
+
+npm install mongodb
+
+mongodb+srv://mabustillop:RmqfnXRgGdm25RbT@clusteribh.gdk9bfr.mongodb.net/?retryWrites=true&w=majority
