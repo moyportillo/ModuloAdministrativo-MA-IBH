@@ -1,6 +1,8 @@
-function Homepage(){
+async function Homepage(){ 
   return(
-    <div>Homepage</div>
+    <div>
+      <h2>Ministerio de Alabanza</h2>
+    </div>
   )
 }
 
