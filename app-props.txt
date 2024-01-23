@@ -8,3 +8,5 @@ npm install mongodb
 mongodb+srv://mabustillop:RmqfnXRgGdm25RbT@clusteribh.gdk9bfr.mongodb.net/?retryWrites=true&w=majority
 
 mongodb://localhost:27017
+
+mongodb+srv://mabustillop:RmqfnXRgGdm25RbT@clusteribh.gdk9bfr.mongodb.net/ma_ibh_nextjs?retryWrites=true&w=majority

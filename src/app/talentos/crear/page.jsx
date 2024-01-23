@@ -95,8 +95,10 @@ function FormTalento() {
             <form onSubmit={handleSubmit}>
                 <header className="flex justify-between">
                     <h1 className="font-bold text-3xl">{!params.id ? "Crear Tipo Talento" : "Modificar Tipo Talento"}</h1>
-                    <button type="button" className="bg-red-500 font-bold px-4 py-2 rounded-md"
-                        onClick={handlerDelete}>Eliminar</button>
+                    {
+                        !params.id ? <button type="button" className="bg-red-500 font-bold px-4 py-2 rounded-md"
+                        onClick={handlerDelete}>Eliminar</button> : <p></p> 
+                    }
                 </header>
                 <input type="text"
                     name="nombreTalento"
