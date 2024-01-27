@@ -5,9 +5,12 @@ function Navbar() {
         <nav className="bg-gray-950 py-5 mb-2">
             <div className="container flex justify-between px-10 md:px-0 mx-auto">
                 <Link href="/">
-                    <h1 className="text-2xl font-bold">Ministerio Alabanza</h1>
+                    <h1 className="text-2xl font-bold ml-5">Ministerio Alabanza</h1>
                 </Link>
-                <ul className="flex gap-x-4">
+                <ul className="flex gap-x-5 mr-5">
+                    <li>
+                        <Link href="/calendarios">Calendarios</Link>
+                    </li>
                     <li>
                         <Link href="/talentos">Talentos</Link>
                     </li>
