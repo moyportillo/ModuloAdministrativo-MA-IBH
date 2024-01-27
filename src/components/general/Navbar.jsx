@@ -14,6 +14,9 @@ function Navbar() {
                     <li>
                         <Link href="/horarios">Horarios</Link>
                     </li>
+                    <li>
+                        <Link href="/integrantes">Integrantes</Link>
+                    </li>
                 </ul>
             </div>
         </nav>

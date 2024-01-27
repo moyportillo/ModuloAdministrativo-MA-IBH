@@ -11,7 +11,7 @@ async function cargarHorario(){
 async function getHorarios(){
     const horarios = await cargarHorario()
     return(
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid grid-cols-3 gap-2">
             {horarios.map(horario =>(
                 <HorarioCard horario={horario} key={horario._id}/>
             ))}

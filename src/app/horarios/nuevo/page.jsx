@@ -1,5 +1,7 @@
+"use client"
+
 import { useState, useEffect } from "react";
-import { useRouter, useParams } from "next/router";
+import { useRouter, useParams } from "next/navigation";
 
 function FormHorario() {
     const [newHorario, setHorario] = useState({
@@ -12,7 +14,7 @@ function FormHorario() {
     const params = useParams()
 
     const getHorario = async () => {
-        const res = await fetch(`/api/horarios/${params.id}`)
+        const res = await fetch(`/api/horario/${params.id}`)
         const data = await res.json()
         setHorario({
             dia: data.dia,
@@ -27,10 +29,9 @@ function FormHorario() {
                 method: "POST",
                 body: JSON.stringify(newHorario),
                 headers: {
-                    "Content_Type": "application/json"
+                    "Content-Type": "application/json"
                 }
             })
-
             const data = await response.json()
 
             if (response.status == 200) {
@@ -38,7 +39,7 @@ function FormHorario() {
                 router.refresh()
             }
         } catch (error) {
-
+            console.log(error)
         }
     }
 
@@ -66,12 +67,11 @@ function FormHorario() {
         }
     }
 
-    const handleSumit = async (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         if (!params.id) {
             await createHorario()
-        }
-        else {
+        } else {
             updateHorario()
         }
     }
