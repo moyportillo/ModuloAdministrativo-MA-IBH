@@ -1,27 +1,58 @@
 "use client"
 
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
+
+const MONTH_NAME = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+const DAYS = ['Dom', 'Lun', 'Mar', 'Mier', 'Jue', 'Vie', 'Sab']
+
+
 
 const GridComponent = () => {
-    const [items, setItems] = useState([])
+    const [month, setMonth] = useState(new Date().getMonth());
+    const [year, setYear] = useState(new Date().getFullYear());
+    const [noOfDays, setNoOfDays] = useState([]);
+    const [blankDays, setBlankDays] = useState([]);
+    const [events, setEvents] = useState([
+        {
+            event_date: new Date(2020, 3, 1),
+            event_title: "April Fool's Day",
+            event_theme: 'blue'
+        },
+        // Add more events...
+    ]);
+    const [openEventModal, setOpenEventModal] = useState(false);
+    const [eventTitle, setEventTitle] = useState('');
+    const [eventDate, setEventDate] = useState('');
+    const [eventTheme, setEventTheme] = useState('blue');
 
-    const agregarItem = () => {
-        const nuevoItem = {id: items.length, contenido: `Item ${items.length}`}
-        setItems([...items, nuevoItem])
-    }
+    useEffect(() => {
+        function getNoOfDays() {
+            let daysInMonth = new Date(year, month + 1, 0).getDate();
+            let dayOfWeek = new Date(year, month).getDay();
+            let blankdaysArray = [];
+            for (let i = 1; i <= dayOfWeek; i++) {
+                blankdaysArray.push(i);
+            }
 
-    return(
-        <div className="container mx-auto px-5 mt-4">
-            <button type="submit" className="bg-blue-300 hover:bg-blue-500 text-white font-bold px-4 py-2 m-5 rounded-lg" onClick={agregarItem}>Agregar</button>
-            <div className="grid grid-cols-4 gap-3 mt-1 mb-6">
-                {items.map((item) => (
-                    <div key={item.id} className="bg-blue-600 text-white rounded-md hover:cursor-pointer hover:bg-blue-700 p-10">
-                        {item.contenido}
-                    </div>
-                ))}
-            </div>
-        </div> 
-    )
+            let daysArray = [];
+            for (let i = 1; i <= daysInMonth; i++) {
+                daysArray.push(i);
+            }
+
+            setBlankDays(blankdaysArray);
+            setNoOfDays(daysArray);
+        }
+
+        getNoOfDays();
+    }, [month, year]);
+
+    // Include the rest of your component logic and UI here...
+
+    return (
+        <div>
+            
+        </div>
+    );
 }
 
 export default GridComponent
